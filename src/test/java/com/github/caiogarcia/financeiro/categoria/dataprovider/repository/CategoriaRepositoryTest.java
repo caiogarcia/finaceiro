@@ -1,4 +1,4 @@
-package com.github.caiogarcia.financeiro.dataprovider.repository;
+package com.github.caiogarcia.financeiro.categoria.dataprovider.repository;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -7,7 +7,7 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.github.caiogarcia.financeiro.dataprovider.repository.model.BancoModel;
+import com.github.caiogarcia.financeiro.categoria.dataprovider.repository.model.CategoriaModel;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -21,17 +21,17 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DataJpaTest
 @ActiveProfiles("test")
 @Tag("Integration")
-public class BancoRepositoryTest {
-    
+public class CategoriaRepositoryTest {
+ 
     @Autowired
-    private BancoRepository repository;
+    private CategoriaRepository repository;
     @PersistenceContext
     private EntityManager entityManager;
 
     @Test
-    public void dadoUmaListaDeBancosNoDBQuandoPesquisarPeloIDEntaoDeveRetornarOBanco() {
-        Optional<BancoModel> banco = repository.findById(1);
+    public void dadoUmaListaDeCategoriasNoDBQuandoPesquisarPeloIDEntaoDeveRetornarACategoria() {
+        Optional<CategoriaModel> categoria = repository.findById(1);
 
-        assertTrue(banco.isPresent());
+        assertTrue(categoria.isPresent());
     }
 }

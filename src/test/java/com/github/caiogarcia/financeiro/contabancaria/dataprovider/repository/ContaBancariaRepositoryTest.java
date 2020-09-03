@@ -1,4 +1,4 @@
-package com.github.caiogarcia.financeiro.dataprovider.repository;
+package com.github.caiogarcia.financeiro.contabancaria.dataprovider.repository;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -7,7 +7,7 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.github.caiogarcia.financeiro.dataprovider.repository.model.MovimentoModel;
+import com.github.caiogarcia.financeiro.contabancaria.dataprovider.repository.model.ContaBancariaModel;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -21,17 +21,17 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DataJpaTest
 @ActiveProfiles("test")
 @Tag("Integration")
-public class MovimentoRepositoryTest {
+public class ContaBancariaRepositoryTest {
     
     @Autowired
-    private MovimentoRepository repository;
+    private ContaBancariaRepository repository;
     @PersistenceContext
     private EntityManager entityManager;
 
     @Test
-    public void dadoUmaListaDeMovimentosNoDBQuandoPesquisarPeloIDEntaoDeveRetornarOMovimento() {
-        Optional<MovimentoModel> movimento = repository.findById(1);
+    public void dadoUmaListaDeContaBancariasNoDBQuandoPesquisarPeloIDEntaoDeveRetornarAContaBancaria() {
+        Optional<ContaBancariaModel> contaBancaria = repository.findById(1);
 
-        assertTrue(movimento.isPresent());
-    }  
+        assertTrue(contaBancaria.isPresent());
+    }
 }

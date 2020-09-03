@@ -1,6 +1,6 @@
-package com.github.caiogarcia.financeiro.dataprovider.repository;
+package com.github.caiogarcia.financeiro.categoria.dataprovider.repository;
 
-import com.github.caiogarcia.financeiro.dataprovider.repository.model.CategoriaModel;
+import com.github.caiogarcia.financeiro.categoria.dataprovider.repository.model.CategoriaModel;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

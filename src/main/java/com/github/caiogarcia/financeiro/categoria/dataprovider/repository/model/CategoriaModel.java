@@ -1,4 +1,4 @@
-package com.github.caiogarcia.financeiro.dataprovider.repository.model;
+package com.github.caiogarcia.financeiro.categoria.dataprovider.repository.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.github.caiogarcia.financeiro.dataprovider.repository.model;
+package com.github.caiogarcia.financeiro.movimento.dataprovider.repository.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

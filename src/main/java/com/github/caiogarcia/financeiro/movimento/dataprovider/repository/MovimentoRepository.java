@@ -1,6 +1,6 @@
-package com.github.caiogarcia.financeiro.dataprovider.repository;
+package com.github.caiogarcia.financeiro.movimento.dataprovider.repository;
 
-import com.github.caiogarcia.financeiro.dataprovider.repository.model.MovimentoModel;
+import com.github.caiogarcia.financeiro.movimento.dataprovider.repository.model.MovimentoModel;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
