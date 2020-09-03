@@ -19,16 +19,21 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "conta_bancaria")
 public class ContaBancariaModel {
+    
     @Column(name = "id_conta_bancaria")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idContaBancaria;
+    
     @Column(name = "id_banco")
     private Integer idBanco;
+    
     @Column(name = "agencia")
     private String agencia;
+    
     @Column(name = "conta")
     private String conta;
+    
     @Column(name = "dac")
     private String digito;
 }

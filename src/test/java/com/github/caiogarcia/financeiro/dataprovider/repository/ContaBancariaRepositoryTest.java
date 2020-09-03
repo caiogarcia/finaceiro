@@ -7,7 +7,7 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.github.caiogarcia.financeiro.dataprovider.repository.model.BancoModel;
+import com.github.caiogarcia.financeiro.dataprovider.repository.model.ContaBancariaModel;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -21,17 +21,17 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DataJpaTest
 @ActiveProfiles("test")
 @Tag("Integration")
-public class BancoRepositoryTest {
+public class ContaBancariaRepositoryTest {
     
     @Autowired
-    private BancoRepository repository;
+    private ContaBancariaRepository repository;
     @PersistenceContext
     private EntityManager entityManager;
 
     @Test
-    public void dadoUmaListaDeBancosNoDBQuandoPesquisarPeloIDEntaoDeveRetornarOBanco() {
-        Optional<BancoModel> banco = repository.findById(1);
+    public void dadoUmaListaDeContaBancariasNoDBQuandoPesquisarPeloIDEntaoDeveRetornarAContaBancaria() {
+        Optional<ContaBancariaModel> contaBancaria = repository.findById(1);
 
-        assertTrue(banco.isPresent());
+        assertTrue(contaBancaria.isPresent());
     }
 }
