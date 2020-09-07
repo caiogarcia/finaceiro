@@ -34,7 +34,7 @@ public class CadastrarBancoEntryPointTest {
     }
 
     @Test
-    public void test(){
+    public void dadoUmBancoValidoQuandoSolicitarOCadastroDeveretornaroIdDoBancoCadastrado(){
         BancoEntity bancoEntity = new BancoEntity(null, "123", "banco Teste");
         Integer expectedID = 20;
         when(useCase.executar(any(Banco.class))).thenReturn(expectedID);
