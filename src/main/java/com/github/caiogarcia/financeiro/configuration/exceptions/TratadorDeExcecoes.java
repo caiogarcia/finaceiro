@@ -1,6 +1,5 @@
 package com.github.caiogarcia.financeiro.configuration.exceptions;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
