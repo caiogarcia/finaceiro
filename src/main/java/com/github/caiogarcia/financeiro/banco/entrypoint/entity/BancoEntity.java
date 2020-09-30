@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BancoEntity {
-    
+
     private Integer idBanco;
     @NotBlank(message = "Campo obrigatório.")
     private String codigo;

@@ -1,10 +1,12 @@
 package com.github.caiogarcia.financeiro.banco.dataprovider;
 
-import com.github.caiogarcia.financeiro.banco.core.gateway.ICadastrarBancoGateway;
-import com.github.caiogarcia.financeiro.banco.core.model.Banco;
+import java.util.Optional;
+
+import com.github.caiogarcia.financeiro.banco.core.gateway.IRecuperarBancoGateway;
 import com.github.caiogarcia.financeiro.banco.dataprovider.mapper.BancoModelMapper;
 import com.github.caiogarcia.financeiro.banco.dataprovider.repository.BancoRepository;
 import com.github.caiogarcia.financeiro.banco.dataprovider.repository.model.BancoModel;
+import com.github.caiogarcia.financeiro.banco.core.model.Banco;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,15 +15,19 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 @Component
-public class CadastrarBancoDataProvider implements ICadastrarBancoGateway {
+public class RecuperarBancoDataProvider implements IRecuperarBancoGateway {
 
     private BancoRepository repository;
 
     @Override
-    public Integer executar(Banco banco) {
-        BancoModel model = BancoModelMapper.toModel(banco);
+    public Optional<Banco> executar(Integer idBanco) {
 
-        return repository.save(model).getIdBanco();
+        Optional<BancoModel> modelOptional = repository.findById(idBanco);
+
+        if (modelOptional.isPresent()) {
+            return Optional.of(BancoModelMapper.toEntity(modelOptional.get()));
+        }
+        return Optional.empty();
     }
 
 }

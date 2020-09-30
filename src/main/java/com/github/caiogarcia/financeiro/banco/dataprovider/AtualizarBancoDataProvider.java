@@ -1,6 +1,6 @@
 package com.github.caiogarcia.financeiro.banco.dataprovider;
 
-import com.github.caiogarcia.financeiro.banco.core.gateway.ICadastrarBancoGateway;
+import com.github.caiogarcia.financeiro.banco.core.gateway.IAtualizarBancoGateway;
 import com.github.caiogarcia.financeiro.banco.core.model.Banco;
 import com.github.caiogarcia.financeiro.banco.dataprovider.mapper.BancoModelMapper;
 import com.github.caiogarcia.financeiro.banco.dataprovider.repository.BancoRepository;
@@ -13,15 +13,15 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 @Component
-public class CadastrarBancoDataProvider implements ICadastrarBancoGateway {
+public class AtualizarBancoDataProvider implements IAtualizarBancoGateway {
 
     private BancoRepository repository;
 
     @Override
-    public Integer executar(Banco banco) {
+    public Banco executar(Banco banco) {
         BancoModel model = BancoModelMapper.toModel(banco);
 
-        return repository.save(model).getIdBanco();
+        return BancoModelMapper.toEntity(repository.save(model));
     }
 
 }

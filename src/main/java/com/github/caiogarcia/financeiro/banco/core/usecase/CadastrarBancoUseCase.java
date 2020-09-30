@@ -17,12 +17,11 @@ public class CadastrarBancoUseCase implements ICadastrarBancoUseCase {
 
     @Override
     public Integer executar(Banco banco) {
-        if(banco == null) {
+        if (banco == null) {
             throw new RuntimeException("O Banco não pode ser nulo.");
         }
 
         return gateway.executar(banco);
     }
-    
+
 }
- 
