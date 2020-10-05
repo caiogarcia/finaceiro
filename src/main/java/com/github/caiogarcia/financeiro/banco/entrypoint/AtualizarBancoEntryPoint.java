@@ -3,7 +3,6 @@ package com.github.caiogarcia.financeiro.banco.entrypoint;
 import javax.validation.Valid;
 
 import com.github.caiogarcia.financeiro.banco.core.IAtualizarBancoUseCase;
-import com.github.caiogarcia.financeiro.banco.core.model.Banco;
 import com.github.caiogarcia.financeiro.banco.entrypoint.entity.BancoEntity;
 import com.github.caiogarcia.financeiro.banco.entrypoint.mapper.BancoEntityMapper;
 

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class Banco {
 
     private Integer idBanco;
-    private String nome;
     private String codigo;
+    private String nome;
 
 }
