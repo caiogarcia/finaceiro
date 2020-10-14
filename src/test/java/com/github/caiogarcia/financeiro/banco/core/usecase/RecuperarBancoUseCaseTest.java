@@ -10,6 +10,7 @@ import java.util.Optional;
 import com.github.caiogarcia.financeiro.banco.core.gateway.IRecuperarBancoGateway;
 import com.github.caiogarcia.financeiro.banco.core.model.Banco;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -42,6 +43,17 @@ public class RecuperarBancoUseCaseTest {
 
         verify(gateway, times(1)).executar(idBanco);
         assertEquals(banco, actual);
+    }
+
+    @Test
+    public void dadoUmBancoNuloQuandoChamadoOUseCaseEntaoDeveRetornarUmaExcecao() {
+
+        Integer idBanco = null;
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            useCase.executar(idBanco);
+        });
+
+        verify(gateway, times(0)).executar(idBanco);
     }
 
 }

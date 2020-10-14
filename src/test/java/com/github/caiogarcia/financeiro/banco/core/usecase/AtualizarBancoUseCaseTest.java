@@ -47,6 +47,19 @@ public class AtualizarBancoUseCaseTest {
     }
 
     @Test
+    public void dadoUmBancoInvalidoQuandoChamadoOUseCaseEntaoDeveRetornarUmaExcecao() {
+        Banco banco = Banco.builder().idBanco(1).codigo("123").nome("meu banco").build();
+        when(recuperarGateway.executar(1)).thenReturn(Optional.empty());
+
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            useCase.executar(banco);
+        });
+
+        verify(atualizarGateway, times(0)).executar(banco);
+        verify(recuperarGateway, times(1)).executar(1);
+    }
+
+    @Test
     public void dadoUmBancoNuloQuandoChamadoOUseCaseEntaoDeveRetornarUmaRuntimeException() {
         Banco banco = null;
 

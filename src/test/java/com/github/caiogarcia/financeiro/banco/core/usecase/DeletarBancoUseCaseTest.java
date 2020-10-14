@@ -48,6 +48,19 @@ public class DeletarBancoUseCaseTest {
     }
 
     @Test
+    public void dadoUmBancoInvalidoQuandoChamadoOUseCaseEntaoDeveRetornarUmaExcecao() {
+        Integer idBanco = 1;
+        when(recuperarGateway.executar(1)).thenReturn(Optional.empty());
+
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            useCase.executar(idBanco);
+        });
+
+        verify(deletarGateway, times(0)).executar(idBanco);
+        verify(recuperarGateway, times(1)).executar(idBanco);
+    }
+
+    @Test
     public void dadoUmBancoNuloQuandoChamadoOUseCaseEntaoDeveRetornarUmaRuntimeException() {
         Integer idBanco = null;
 

@@ -19,28 +19,27 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 @Tag("Unit")
-public class CadastrarBancoDataProviderTest {
+public class AtualizarBancoDataProviderTest {
 
     @Mock
     private BancoRepository repository;
 
-    private CadastrarBancoDataProvider dataProvider;
+    private AtualizarBancoDataProvider dataProvider;
 
     @BeforeEach
     public void beforeEach() {
-        dataProvider = new CadastrarBancoDataProvider(repository);
+        dataProvider = new AtualizarBancoDataProvider(repository);
     }
 
     @Test
-    public void DadoUmBancoValidoQuandoCadastrarDeveSalvarOBancoERetornarOIdSalvo() {
-        Integer expected = 1;
-        Banco banco = Banco.builder().codigo("123").nome("ACME Bank").build();
-        BancoModel model = BancoModel.builder().idBanco(expected).codigo("123").nome("ACME Bank").build();
+    public void dadoUmBancoValidoQuandoAtualizarDeveSalvarORepositorioERetornarOBanco() {
+        Banco banco = Banco.builder().idBanco(1).codigo("123").nome("ACME Bank").build();
+        BancoModel model = BancoModel.builder().idBanco(1).codigo("123").nome("ACME Bank").build();
         when(repository.save(any(BancoModel.class))).thenReturn(model);
 
-        Integer actual = dataProvider.executar(banco);
+        Banco actual = dataProvider.executar(banco);
 
-        assertEquals(expected, actual);
+        assertEquals(banco, actual);
         verify(repository, times(1)).save(any(BancoModel.class));
     }
 }
